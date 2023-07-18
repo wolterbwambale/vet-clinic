@@ -43,6 +43,7 @@
 
 - **[Create animals Database]**
 - **[Add insert data]**
+- **[Query and update animals table]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
