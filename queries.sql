@@ -27,12 +27,13 @@ SELECT * FROM animals WHERE name != 'Gabumon';
 SELECT * FROM animals WHERE weight_kg BETWEEN 10.4 AND 17.3;
 
 /*Inside a transaction update the animals table by setting the species column to unspecified. Verify that change was made.*/
-BEGIN TRANSACTION;
+BEGIN;
 UPDATE animals SET species = 'unspecified';
 
 ROLLBACK;
 
 /*Update the animals table by setting the species column to digimon for all animals that have a name ending in mon.*/
+BEGIN;
 UPDATE animals SET species = 'digimon' WHERE name LIKE '%mon';
 COMMIT;
 
@@ -49,10 +50,12 @@ COMMIT;
 SELECT * FROM animals;
 
 /*Delete animals */
+BEGIN;
 DELETE FROM animals;
 ROLLBACK;
 
 /*Delete all animals born after Jan 1st, 2022.*/
+BEGIN;
 DELETE FROM animals WHERE date_of_birth > '2022-01-01';
 
 -- Create a savepoint for the transaction.
